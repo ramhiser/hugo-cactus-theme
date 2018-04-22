@@ -7,7 +7,14 @@
  		<a href='{{ .URL }}'>{{ .Name }}</a>
   	{{ end }}
 
-	{{ if .Site.Params.enableRSS }}
-		<a class="cta" href="{{ .Site.RSSLink }}">{{ .Site.Params.subscribe | default "Subscribe" }}</a>
-	{{ end }}
+  <div class="subscribe">
+      <form name="email_signup" method="POST" netlify>
+        <label for="femail">Sign Up for Email Updates</label>
+        <input type="text" id="femail" name="email" placeholder="Your email address...">
+        <input type="submit" value="Submit">
+        {{ if .Site.Params.enableRSS }}
+		    <a class="cta" href="{{ .Site.RSSLink }}">{{ .Site.Params.subscribe | default "RSS" }}</a>
+	      {{ end }}
+      </form>
+  </div>
 </nav>
